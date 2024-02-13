@@ -1,0 +1,593 @@
+@font-face {
+    font-family: 'AbeeZee';
+    src: url(./fonts/ABeeZee-Regular.ttf);
+}
+@font-face {
+    font-family: 'Finger Paint';
+    src: url(./fonts/FingerPaint-Regular.ttf);
+}
+@font-face {
+    font-family: 'Alata';
+    src: url(./fonts/Alata-Regular.ttf);
+}
+@import '@fortawesome/fontawesome-svg-core/styles.css';
+
+
+*{
+    box-sizing: border-box;
+}
+
+/* Registration page / Login Page ---- style */
+
+.registrationSection, .loginSection{
+    background-color: #c62641;
+    height: 100vh;
+    padding-top: 80px;
+}
+
+.registrationSection h1, .loginSection h1{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+    font-family: 'AbeeZee';
+}
+
+.registrationSection .registrationForm, .loginSection .loginForm{
+    display: flex;
+    flex-direction: column;
+    
+    max-width: 600px;
+    margin: auto;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 12px;
+
+}
+
+.registrationSection .registrationForm div, .loginSection .loginForm div{
+    display: flex;
+    flex-direction: column;
+}
+
+.registrationSection .registrationForm label, .loginSection .loginForm label{
+    margin-top: 20px;
+    color: #c62641;
+    font-family: 'AbeeZee';
+}
+.registrationSection .registrationForm input, .loginSection .loginForm input{
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+
+    color: #c62641;
+    padding: 8px;
+    outline: none;
+    font-family: 'AbeeZee';
+}
+.registrationSection .registrationForm input[type=submit], .loginSection .loginForm input[type=submit]{
+    width: 200px;
+    padding: 12px;
+    margin: auto;
+    margin-top: 20px;
+
+    background-color: #c62641;
+    border: none;
+    color: #FFFFFF;
+}
+
+.registrationSection .registrationForm input::placeholder,
+.loginSection .loginForm input::placeholder{
+    color: #c62641;
+}
+
+.registrationSection .RegisterPassword, 
+.loginSection .loginPassword{
+    position: relative;
+}
+.registrationSection .RegisterPassword img, 
+.loginSection .loginForm img{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.registrationSection .registrationForm p, 
+.loginSection .loginForm p{
+    margin-bottom: 0;
+    color: #c62641;
+    font-family: 'AbeeZee';
+    margin-top: 20px;
+}
+.registrationSection .registrationForm .link, 
+.loginSection .loginForm .link{
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+    font-family: 'Finger Paint';
+}
+
+.registrationSection .registrationForm .helperText, .registrationSection .registrationForm .passError{
+    color: red;
+    margin: 8px 0 0 8px;
+    width: fit-content;
+}
+
+/* end of Registration page / Login Page  ---- style */
+
+
+/* ------ Header style ------ */
+
+
+.header{
+    background-color: #c62641;
+}
+.header .navbar-collapse{
+    flex-grow: unset;
+}
+.header .NavLinksList{
+    gap: 20px;
+}
+
+.header .burgerMenuButton{
+    box-shadow: none;
+}
+.header .link{
+    font-family: "AbeeZee";
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+
+@media screen and (max-width: 991px){
+    .header .NavLinksList{
+        gap: 10px;
+    }
+    .header .nav-item{
+        line-height: 16px;
+    }
+    .header .navbar-collapse{
+        margin-top: 12px;
+    }
+}
+/* ------ End of Header style ------ */
+
+
+
+
+/* ------ Home body component style ------ */
+.scrollmagic-pin-spacer{
+    z-index: -1;
+}
+.HomeBodyContainer{
+    background-color: #c62641;
+    height: 110vh;
+    padding-top: 10px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HomeBodyContainer .backgroundLetter{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #000000;
+    font-size: 600px;
+    font-family: 'Alata';
+    opacity: .2;
+    z-index: 0;
+}
+
+.HomeBodyContainer .bodyTitle{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.HomeBodyContainer .bodyTitle h1{
+    max-width: 880px;
+    color: #FFFFFF;
+    font-size: 60px;
+    font-family: sans-serif;
+    text-align: center;
+    font-style: normal;
+    line-height: 60px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.HomeBodyContainer .bodyTitle > div{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.HomeBodyContainer .bodyTitle p, .HomeBodyContainer .bodyTitle .HomeLinks{
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0;
+    text-decoration: none;
+}
+.HomeBodyContainer .bodyTitle .HomeLinks:hover{
+    text-decoration: underline;
+}
+
+
+.HomeBodyContainer .bodyTitle button{
+    padding: 15px 60px;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-family: 'AbeeZee';
+    transition: all .5s ease;
+}
+.HomeBodyContainer .bodyTitle button:hover{
+    background-color: #FFFFFF;
+    color: #c62641;
+    box-shadow: 5px 5px 20px black;
+}
+
+
+.HomeBodyContainer .bodyTitle button:nth-child(2) .bookmark-icon {
+    color: #FFFFFF;
+    margin-right: 12px;
+    transition: all .5s ease;
+}
+
+.HomeBodyContainer .bodyTitle button:nth-child(2):hover .bookmark-icon {
+    color: #c62641;
+}
+
+@media screen and (max-width: 768px) {
+    .HomeBodyContainer{
+        overflow: hidden;
+    }
+    .HomeBodyContainer .bodyTitle h1{
+        font-size: 36px;
+        line-height: 36px;
+    }
+    .HomeBodyContainer .bodyTitle div:nth-child(3){
+        flex-direction: column;
+    }
+    .HomeBodyContainer .bodyTitle button{
+        width: 250px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .HomeBodyContainer .bodyTitle div:nth-child(2){
+        flex-wrap: wrap;
+    }
+    .HomeBodyContainer .bodyTitle .dash{
+        display: none;
+    }
+    .HomeBodyContainer .bodyTitle h1{
+        font-size: 24px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .HomeBodyContainer .bodyTitle > div:nth-child(2){
+        gap: 0;
+    }
+}
+
+/* ------ End of Home body component style ------ */
+
+
+/* ------ Home blogs component style ------ */
+
+.blogs-section{
+    position: relative;
+    background-color: #FFFFFF;
+}
+.blogs-section .blogs-container{
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 60%;
+    padding: 60px 120px;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 10px #807c7c;
+}
+
+.blogs-section .blogs-container h1{
+    color: #c62641;
+    text-align: center;
+    font-size: 36px;
+}
+.blogs-section .blogs-container .underline{
+    border-bottom: 1px solid #c62641;
+    margin: 24px auto;
+    width: 60px;
+}
+
+.blogs-section .blogs-container article{
+    margin-top: 60px;
+}
+
+.blogs-section .blogs-container article h2{
+    font-family: 'AbeeZee';
+    color: #333333;
+    font-style: normal;
+    font-size: 48px;
+    display: inline;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.blogs-section .blogs-container article p{
+    font-family: 'AbeeZee';
+    color: #333333;
+    font-style: normal;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+}
+
+.blogs-section .blogs-container article h2:hover{
+    color: #c62641;
+}
+
+
+.blogs-section .blogs-footer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.blogs-section .blogs-footer h2{
+    font-family: 'AbeeZee';
+    color: #333333;
+    font-style: normal;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 12px;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+.blogs-section .blogs-footer h2:hover{
+    color: #c62641;
+}
+
+.blogs-section .blogs-footer p{
+    font-family: 'AbeeZee';
+    color: #333333;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+    width: 600px;
+    margin: 0;
+}
+
+.blogs-section .blogs-container .articleButtons{
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+.blogs-section .blogs-container .articleButtons button{
+    padding: 15px 40px;
+    background: transparent;
+    border: 1px solid #c62641;
+    color: #c62641;
+    text-transform: uppercase;
+    font-family: 'AbeeZee';
+    transition: all .5s ease;
+}
+.blogs-section .blogs-container .articleButtons button:hover{
+    background-color: #c62641;
+    color: #FFFFFF;
+    box-shadow: 5px 5px 20px #c62641;
+}
+.blogs-section .blogs-container .bookmark-icon{
+    color: #c62641;
+    margin-right: 12px;
+    transition: all .5s ease;
+}
+
+.blogs-section .blogs-container .articleButtons button:nth-child(2):hover .bookmark-icon {
+    color: #FFFFFF;
+}
+
+.blogs-section .blogs-container .blogsUnderline{
+    margin: 80px auto;
+    width: 60px;
+    height: 1px;
+    background-color: #c62641;
+}
+
+.blogs-section .blogs-container .articleChange{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogs-section .blogs-container .articleChange div{
+    display: flex;
+    gap: 12px;
+}
+.blogs-section .blogs-container .articleChange button{
+    background-color: transparent;
+    color: #c62641;
+    border: 1px solid #c62641;
+    padding: 8px 12px;
+    height: auto;
+}
+
+@media screen and (max-width: 1024px){
+    .blogs-section .blogs-container article h2{
+        font-size: 36px;
+    }
+    .blogs-section .blogs-container article p{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 991px){
+    .blogs-section .blogs-container{
+        width: 80%;
+        padding: 60px 90px;
+    }
+    .blogs-section .blogs-container article h2{
+        font-size: 36px;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .blogs-section .blogs-container{
+        width: 100%;
+        padding: 60px 60px;
+    }
+    .blogs-section .blogs-container article h2{
+        font-size: 32px;
+    }
+    .blogs-section .blogs-container article p{
+        font-size: 18px;
+    }
+    .blogs-section .blogs-footer h2{
+        font-size: 24px;
+    }
+    .blogs-section .blogs-footer p{
+        font-size: 16px;
+        width: 400px;
+    }
+    .blogs-section .blogs-container h1{
+        font-size: 36px;
+    }
+    .blogs-section .blogs-container .blogsUnderline{
+        margin: 50px auto;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .blogs-section .blogs-container .articleButtons{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .blogs-section .blogs-container{
+        padding: 30px 30px;
+    }
+    .blogs-section .blogs-container article h2{
+        font-size: 24px;
+    }
+    .blogs-section .blogs-container article p{
+        font-size: 12px;
+        margin-top: 12px;
+    }
+    .blogs-section .blogs-container article{
+        margin-top: 30px;
+    }
+    .blogs-section .blogs-footer p{
+        width: 100%;
+        font-size: 12px;
+    }
+    .blogs-section .blogs-container h1{
+        font-size: 24px;
+    }
+    .blogs-section .blogs-container button{
+        font-size: 12px;
+        padding: 10px 40px;
+    }
+}
+
+/* ------ End of Home blogs component style ------ */
+
+
+
+/* ------ Create Blog section style ------ */
+
+.createBlogSection{
+    height: 100vh;
+    align-items: center;
+    background-color: #c62641; 
+    padding-top: 40px;
+}
+.createBlogSection h1{
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'AbeeZee';
+    font-size: 48px;
+    color: #FFFFFF;
+}
+.createBlogSection form{
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: auto;
+    padding: 20px;
+}
+
+.createBlogSection form div{
+    display: flex;
+    flex-direction: column;
+}
+.createBlogSection form label{
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-family: 'AbeeZee';
+}
+.createBlogSection input, .createBlogSection textarea{
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 8px 12px;
+    outline: none;
+    color: #000000;
+    font-family: 'AbeeZee';
+}
+.createBlogSection textarea{
+    resize: none;
+    height: 200px;
+}
+
+.createBlogSection button{
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: fit-content;
+    margin: auto;
+
+    color: #FFFFFF;
+    font-family: 'AbeeZee';
+    font-size: 16px;
+    transition: all .5s ease;
+}
+.createBlogSection button:hover{
+    background-color: #FFFFFF;
+    color: #c62641;
+}
+
+@media screen and (max-width: 768px){
+    .createBlogSection h1{
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .createBlogSection h1{
+        font-size: 28px;
+    }
+}
+/* ------ End of Create Blog section style ------ */
