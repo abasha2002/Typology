@@ -13,7 +13,7 @@ class App extends Component{
             <React.Fragment>
                 <BrowserRouter>
                     <Routes>
-                        <Route index element={ <Home /> } />
+                        <Route index element={ <Login /> } />
                         <Route path='/registration' element={<Registration />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/home' element={<Home />} />
