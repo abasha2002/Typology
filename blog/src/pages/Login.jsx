@@ -38,7 +38,7 @@ function Login() {
 
             localStorage.setItem('loginData', JSON.stringify(Data));
 
-            navigate('/');
+            navigate('/home');
         })
         .catch(error => {
             console.error("Error during API request:", error);
