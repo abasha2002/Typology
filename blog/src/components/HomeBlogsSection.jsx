@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../style.css';
+import { useBlogContext } from './BlogContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import CreateBlog from '../pages/CreateBlog';
 
 function HomeBlogsSection() {
-  const [blogs, setBlogs] = useState([]);
+
+  const { blogs, setBlogs } = useBlogContext();
 
   useEffect(() => {
     const fetchBlogList = async () => {
@@ -53,9 +55,6 @@ function HomeBlogsSection() {
     };
   }, [blogs]);
 
-  const handleBlogCreated = (newBlog) => {
-    setBlogs((prevBlogs) => [newBlog, ...prevBlogs]);
-  };
 
   const handleDeleteBlog = async (blogId) => {
     try {
@@ -66,9 +65,10 @@ function HomeBlogsSection() {
     }
   };
 
-  const handleEditBlog = async (blogId) => {
-    console.log(`Editing blog with ID: ${blogId}`);
-  };
+  // const handleEditBlog = async (blogId) => {
+  //   console.log(`Editing blog with ID: ${blogId}`);
+  // };
+
 
   return (
     
@@ -98,7 +98,7 @@ function HomeBlogsSection() {
             </div>
           </article>
         ))}
-         <CreateBlog BlogCreated={handleBlogCreated} />
+
       </div>
           
       <div className='blogs-footer'>

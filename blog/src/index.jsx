@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BlogProvider } from './components/BlogContext';
 
 import Home from './pages/Home';
 import Registration from './pages/Registration';
@@ -12,13 +13,15 @@ class App extends Component{
         return (
             <React.Fragment>
                 <BrowserRouter>
-                    <Routes>
-                        <Route index element={ <Login /> } />
-                        <Route path='/registration' element={<Registration />} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/home' element={<Home />} />
-                        <Route path='/createBlog' element={<CreateBlog />} />
-                    </Routes>
+                    <BlogProvider>
+                        <Routes>
+                            <Route index element={ <Login /> } />
+                            <Route path='/registration' element={<Registration />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/home' element={<Home />} />
+                            <Route path='/createBlog' element={<CreateBlog />} />
+                        </Routes>
+                    </BlogProvider>
                 </BrowserRouter>
             </React.Fragment>   
         )

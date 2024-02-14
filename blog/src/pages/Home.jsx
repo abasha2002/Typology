@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollMagic from 'scrollmagic';
 
 import Header from '../components/Header';
 import HomeBody from '../components/HomeBody';
 import HomeBlogsSection from '../components/HomeBlogsSection';
+import CreateBlog from './CreateBlog';
 
 function Home() {  
 
@@ -27,7 +28,6 @@ function Home() {
     .addTo(controller);
 
   }, []);
-
 
   return (
     <div className='HomePage'>
