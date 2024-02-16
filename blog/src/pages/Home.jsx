@@ -34,10 +34,6 @@ function Home() {
         <Header />
         <HomeBody />
         <HomeBlogsSection />
-
-        <Link to="/login">Log in</Link>
-        <br />
-        <Link to="/registration">registration</Link>
     </div>
   )
 }
