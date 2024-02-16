@@ -159,9 +159,11 @@
 
 
 /* ------ Home body component style ------ */
-.scrollmagic-pin-spacer{
+
+
+/* .scrollmagic-pin-spacer{
     z-index: -1;
-}
+} */
 .HomeBodyContainer{
     background-color: #c62641;
     height: 110vh;
@@ -171,6 +173,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 99;
 }
 
 .HomeBodyContainer .backgroundLetter{
