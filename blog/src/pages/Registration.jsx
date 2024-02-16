@@ -69,7 +69,7 @@ function Registration() {
                 password: '',
             });
 
-            navigate('/');
+            navigate('/home');
         })
         .catch(error => {
             console.error("Error during API request:", error);

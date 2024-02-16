@@ -5,10 +5,11 @@ import { useBlogContext } from './BlogContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import CreateBlog from '../pages/CreateBlog';
+import { Modal, Button, Form } from 'react-bootstrap';
 
 function HomeBlogsSection() {
-
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editingBlog, setEditingBlog] = useState({ id: '', title: '', description: '' });
   const { blogs, setBlogs } = useBlogContext();
 
   useEffect(() => {
@@ -65,9 +66,37 @@ function HomeBlogsSection() {
     }
   };
 
-  // const handleEditBlog = async (blogId) => {
-  //   console.log(`Editing blog with ID: ${blogId}`);
-  // };
+ 
+  const handleEditBlog = (blog) => {
+    setEditingBlog(blog);
+    setShowEditModal(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+  };
+
+  const handleSaveEdit = async () => {
+    try {
+      await axios.put(`https://apitest.reachstar.io/blog/edit/${editingBlog.id}`, {
+        title: editingBlog.title,
+        description: editingBlog.description,
+      });
+
+      // Update the local state with the edited blog
+      setBlogs((prevBlogs) =>
+        prevBlogs.map((blog) =>
+          blog.id === editingBlog.id ? { ...blog, title: editingBlog.title, description: editingBlog.description } : blog
+        )
+      );
+
+      // Close the edit modal
+      handleCloseEditModal();
+    } catch (error) {
+      console.error('Error editing blog:', error);
+    }
+  };
+
 
 
   return (
@@ -82,7 +111,7 @@ function HomeBlogsSection() {
             <div className='articleChange'>
               <h2 className='blogTitle'>{blog.title}</h2>
               <div>
-                <button>edit</button>
+                <button onClick={() => handleEditBlog(blog)}>edit</button>
                 <button onClick={() => handleDeleteBlog(blog.id)}>delete</button>
               </div>
             </div>
@@ -105,6 +134,44 @@ function HomeBlogsSection() {
         <h2>Typology</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At vero aliquam animi! Iure, nesciunt blanditiis?</p>
       </div>
+
+
+      <Modal show={showEditModal} onHide={handleCloseEditModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Blog</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="editBlogTitle">
+              <Form.Label>Title:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter title"
+                value={editingBlog.title}
+                onChange={(e) => setEditingBlog({ ...editingBlog, title: e.target.value })}
+              />
+            </Form.Group>
+            <Form.Group controlId="editBlogDescription">
+              <Form.Label>Description:</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Enter description"
+                value={editingBlog.description}
+                onChange={(e) => setEditingBlog({ ...editingBlog, description: e.target.value })}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseEditModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSaveEdit}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </section>
   )
 }
